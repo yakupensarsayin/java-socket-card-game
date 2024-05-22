@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4b9e45c-7331-4c19-b1bf-89ae4a400c5b" name="Changes" comment="Server infrastructure has been added.">
+    <list default="true" id="f4b9e45c-7331-4c19-b1bf-89ae4a400c5b" name="Changes" comment="Add Client. Add Authenticator. Add Notifications.">
       <change afterPath="$PROJECT_DIR$/src/main/java/org/yakupsayin/client/Client.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/yakupsayin/common_classes/JoinGameRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yakupsayin/common_classes/MessageType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yakupsayin/common_classes/PlayerJoinedNotification.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yakupsayin/common_classes/PlayerLeftNotification.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yakupsayin/server/Authenticator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/yakupsayin/server/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yakupsayin/server/ClientHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/yakupsayin/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yakupsayin/server/Server.java" afterDir="false" />
     </list>
@@ -50,6 +52,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="2gnWqp8kUs2CnlZZS36kqXPHZ7q" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -62,6 +67,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -69,11 +75,12 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Server">
-    <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.Client">
+    <configuration name="Client" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.yakupsayin.client.Client" />
       <module name="java-socket-card-game.main" />
       <extension name="coverage">
@@ -116,7 +123,10 @@
       <option name="presentableId" value="Default" />
       <updated>1716334017258</updated>
       <workItem from="1716334018309" duration="3082000" />
-      <workItem from="1716337473955" duration="122000" />
+      <workItem from="1716337473955" duration="1473000" />
+      <workItem from="1716376995037" duration="1258000" />
+      <workItem from="1716378269725" duration="8306000" />
+      <workItem from="1716389150110" duration="504000" />
     </task>
     <task id="LOCAL-00001" summary="Server infrastructure has been added.">
       <option name="closed" value="true" />
@@ -126,7 +136,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716336152929</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Fix Moshi dependency.">
+      <option name="closed" value="true" />
+      <created>1716337750423</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1716337750423</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -157,6 +175,24 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Server infrastructure has been added." />
-    <option name="LAST_COMMIT_MESSAGE" value="Server infrastructure has been added." />
+    <MESSAGE value="Fix Moshi dependency." />
+    <MESSAGE value="Add Client. Add Authenticator. Add Notifications." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Client. Add Authenticator. Add Notifications." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/yakupsayin/server/ClientHandler.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="GradleRunConfiguration">
+        <watch expression="moshi.lookupChainThreadLocal" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

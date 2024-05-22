@@ -6,7 +6,7 @@ import java.net.Socket;
 
 public class Server {
     private static Integer port = 8080;
-    private ServerSocket serverSocket;
+    private final ServerSocket serverSocket;
 
     public Server(ServerSocket serverSocket){
         this.serverSocket = serverSocket;
@@ -16,17 +16,17 @@ public class Server {
         try {
 
             while (!serverSocket.isClosed()){
-                System.out.println("Waiting for clients...");
+                System.out.println("> Waiting for clients...");
                 Socket socket = serverSocket.accept();
-                System.out.println("A new client has connected!");
+                System.out.println("> A new client has connected!");
 
                 ClientHandler clientHandler = new ClientHandler(socket);
                 Thread clientThread = new Thread(clientHandler);
-                clientThread.run();
+                clientThread.start();
 
             }
-        } catch (IOException e) {
-            closeServerSocket();
+        } catch (IOException ignored) {
+
         }
     }
 
@@ -39,6 +39,7 @@ public class Server {
             System.out.println("An error occurred while closing the server socket." + e.getMessage());
         }
     }
+
     public static void main(String[] args){
         initializePort(args);
 
@@ -49,15 +50,16 @@ public class Server {
             System.out.println("An error occurred while starting the server." + e.getMessage());
         }
     }
+
     public static void initializePort(String[] args){
         if (args.length == 0){
-            System.out.println("The port number is not specified in the arguments.");
-            System.out.println("By default, the port number '8080' will be used.");
+            System.out.println("* The port number is not specified in the arguments.");
+            System.out.println("* By default, the port number '8080' will be used.");
             return;
         }
 
-        System.out.println("Port number found in arguments.");
-        System.out.println(args[0] + " will be used as the port number.");
+        System.out.println("* Port number found in arguments.");
+        System.out.println("* " + args[0] + " will be used as the port number.");
         port = Integer.valueOf(args[0]);
     }
 
